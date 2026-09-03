@@ -152,21 +152,25 @@ if st.button("🚀 Predict Salary"):
 
     try:
 
+        # Predict salary
         prediction = model.predict(input_data)
 
-        salary = prediction[0]
+        # Convert monthly salary to annual salary
+        annual_salary = float(prediction[0]) * 12
 
+        # Display annual salary
         st.markdown(
             f"""
             <div class="result">
-                💰 Predicted Annual Salary<br><br>
-                ₹ {salary:,.2f}
+                💰 Predicted Annual Salary
+                <br><br>
+                ₹ {annual_salary:,.2f}
             </div>
             """,
             unsafe_allow_html=True
         )
 
-        st.success("✅ Salary prediction completed successfully!")
+        st.success("✅ Annual salary prediction completed successfully!")
 
         st.subheader("📋 Employee Details")
 
@@ -186,7 +190,7 @@ if st.button("🚀 Predict Salary"):
 st.markdown(
     """
     <div class="footer">
-        ✨ Created by <b>Chandana Pallemidi</b> & 
+        ✨ Created by <b>Chandana Pallemidi</b> &
         <b>Molankula Reshma</b> ✨
         <br>
         Employee Salary Prediction Project
